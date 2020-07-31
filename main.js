@@ -56,14 +56,13 @@ const truncateSpecies = function(dino){
     newSpecies = dino.species.slice(0,7) + '...'
   } else {
     newSpecies = dino.species;
-  }
-
-  return makeDino(newSpecies, dino.period, dino.carnivore, dino.extinct);
+  } 
+  return  makeDino(newSpecies, dino.period, dino.carnivore, dino.extinct);
 }
 
 //makeExtinct
 const makeExtinct = function(dino){
-  return makeDino(dino.species, dino.period, dino.carnivore, dino.extinct = true);
+  return makeDino(dino.species, dino.period, dino.carnivore, extinct=true);
 }
 
 //singularizeDinos
@@ -78,14 +77,8 @@ const truncateDinos = function(dino){
 
 //makeAllExtinct
 const makeAllExtinct = function(dino){
-  // if(dino.extinct =false){
-  //   newExtinct = true;
-  // } else {
-  //   newExtinct = dino.extinct;
-  // }
-
-  // return makeDino(dino.species, dino.period, dino.carnivore, newExtinct);
   
+  return  dino.map(makeExtinct);
 }
 
 //carnivoresOnly
@@ -111,6 +104,7 @@ const extinctOnly = function(dino){
 const notExtinct = function(dino){
   return dino.filter(function(dino){
     return !isExtinct(dino);
+    //or return isExtinct(dino) === false; same as above.
   })
 }
 
